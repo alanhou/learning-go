@@ -1,8 +1,8 @@
-package Chapter02
+package main
 
 import (
-	"io/ioutil"
 	"fmt"
+	"io/ioutil"
 )
 
 //func bounded(v int) int {
@@ -60,7 +60,7 @@ func main() {
 
 	if contents, err := ioutil.ReadFile(filename); err != nil {
 		fmt.Println(err)
-	}else{
+	} else {
 		fmt.Printf("%s\n", contents)
 	}
 

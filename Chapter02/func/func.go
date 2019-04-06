@@ -1,13 +1,13 @@
-package Chapter02
+package main
 
 import (
 	"fmt"
+	"math"
 	"reflect"
 	"runtime"
-	"math"
 )
 
-func eval(a, b int, op string) (int ,error) {
+func eval(a, b int, op string) (int, error) {
 	switch op {
 	case "+":
 		return a + b, nil
@@ -44,11 +44,11 @@ func div(a, b int) (q, r int) {
 //	return op(a, b)
 //}
 
-func pow(a, b int) int{
+func pow(a, b int) int {
 	return int(math.Pow(float64(a), float64(b)))
 }
 
-func apply(op func(int, int) int, a, b int) int{
+func apply(op func(int, int) int, a, b int) int {
 	fmt.Printf("Calling %s with %d, %d\n",
 		runtime.FuncForPC(reflect.ValueOf(op).Pointer()).Name(),
 		a, b)
@@ -57,7 +57,7 @@ func apply(op func(int, int) int, a, b int) int{
 
 func sumArgs(values ...int) int {
 	sum := 0
-	for i := range values{
+	for i := range values {
 		sum += values[i]
 	}
 	return sum
@@ -66,15 +66,15 @@ func sumArgs(values ...int) int {
 //func swap(a, b *int){
 //	*b, *a = *a, *b
 //}
-func swap(a, b int) (int, int){
+func swap(a, b int) (int, int) {
 	return b, a
 }
 
 func main() {
 	//fmt.Println(eval(3, 4, "x"))
-	if result, err := eval(3, 4, "x"); err != nil{
+	if result, err := eval(3, 4, "x"); err != nil {
 		fmt.Println("Error:", err)
-	}else{
+	} else {
 		fmt.Println(result)
 	}
 	//fmt.Println(div(13, 3))
@@ -93,4 +93,3 @@ func main() {
 	a, b = swap(a, b)
 	fmt.Println(a, b)
 }
-

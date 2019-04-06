@@ -1,10 +1,10 @@
-package Chapter02
+package main
 
 import (
-	"fmt"
-	"strconv"
-	"os"
 	"bufio"
+	"fmt"
+	"os"
+	"strconv"
 )
 
 // 整数转二进制
@@ -17,7 +17,7 @@ func convertToBin(n int) string {
 	return result
 }
 
-func printFile(filename string){
+func printFile(filename string) {
 	file, err := os.Open(filename)
 	if err != nil {
 		panic(err)
@@ -25,13 +25,13 @@ func printFile(filename string){
 
 	scanner := bufio.NewScanner(file)
 
-	for scanner.Scan(){
+	for scanner.Scan() {
 		fmt.Println(scanner.Text())
 	}
 }
 
 // 死循环
-func forever(){
+func forever() {
 	for {
 		fmt.Println("abc")
 	}
@@ -43,7 +43,7 @@ func main() {
 	//	sum += i
 	//}
 	fmt.Println(
-		convertToBin(5), // 101
+		convertToBin(5),  // 101
 		convertToBin(13), // 1101
 		convertToBin(789798),
 		convertToBin(0),
